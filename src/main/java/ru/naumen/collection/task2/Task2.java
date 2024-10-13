@@ -34,13 +34,16 @@ public class Task2
     /**
      * Возвращает дубликаты пользователей, которые есть в обеих коллекциях
      */
+    //Общая сложность O(n)
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
-        Set<User> setA = new HashSet<>(collA);//используется, потому что оно обеспечивает быстрый доступ для проверки наличия элементов
-        List<User> duplicates = new ArrayList<>();//сохраняем дубликаты
+        //используется, потому что оно обеспечивает быстрый доступ для проверки наличия элементов
+        //преобразование в HashSet произходит за O(n)
+        Set<User> setA = new HashSet<>(collA);
+        List<User> duplicates = new ArrayList<>();//сохраняем дубликаты, используем так как вывод List
 
         for (User user : collB) {
-            if (setA.contains(user)) {//проверяем, если пользователь из collB присутствует в setA
-                duplicates.add(user);
+            if (setA.contains(user)) {//Сложность O(1) проверяем, если пользователь из collB присутствует в setA
+                duplicates.add(user);//Сложность O(1)
             }
         }
 
