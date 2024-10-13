@@ -1,5 +1,8 @@
 package ru.naumen.collection.task1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Дано:
  * <pre>
@@ -39,15 +42,10 @@ public class Task1
         FOOD_AND_DRINKS
     }
 
-    /**
-     * Получить товары по билету
-     * <p>Сложность алгоритма O(1)</p>
-     *
-     * <p><b>Мы не забыли определить equals и hashcode у класса {@link Ticket}</b></p>
-     * <p>Достаточно их определить только для id, т.к. он уникален</p>
-     */
+    //Я выбрал HashMap, потому что он обеспечивает быструю, в среднем константную временную сложность O(1) для операций вставки и получения
+    //Общая сложность алгоритма O(1)
+    private Map<Ticket, Goods> ticketMap = new HashMap<>();
     public Goods getGoods(Ticket ticket) {
-        // TODO реализовать
-        return null;
+        return ticketMap.getOrDefault(ticket, Goods.EMPTY);//Сложность O(1)
     }
 }
